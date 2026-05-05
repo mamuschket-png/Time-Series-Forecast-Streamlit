@@ -1,0 +1,10 @@
+artifact_location: file:///Users/matthiasmuschket/PycharmProjects/260414_Time_Series_Masterschool/mlruns/519610500831126026/models/m-7db1d67216cd40b1b36d10d3be0a3ac7/artifacts
+creation_timestamp: 1777466845687
+experiment_id: '519610500831126026'
+last_updated_timestamp: 1777466848825
+model_id: m-7db1d67216cd40b1b36d10d3be0a3ac7
+model_type: null
+name: model
+source_run_id: 92d2572732c947ffadc6be4d206f33ff
+status: 2
+status_message: null

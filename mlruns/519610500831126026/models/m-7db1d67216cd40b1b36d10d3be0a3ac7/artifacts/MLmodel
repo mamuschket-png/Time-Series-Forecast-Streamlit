@@ -1,0 +1,22 @@
+artifact_path: file:///Users/matthiasmuschket/PycharmProjects/260414_Time_Series_Masterschool/mlruns/519610500831126026/models/m-7db1d67216cd40b1b36d10d3be0a3ac7/artifacts
+flavors:
+  python_function:
+    data: model.ubj
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.11.15
+  xgboost:
+    code: null
+    data: model.ubj
+    model_class: xgboost.sklearn.XGBRegressor
+    model_format: ubj
+    xgb_version: 3.2.0
+mlflow_version: 3.11.1
+model_id: m-7db1d67216cd40b1b36d10d3be0a3ac7
+model_size_bytes: 251428
+model_uuid: m-7db1d67216cd40b1b36d10d3be0a3ac7
+prompts: null
+run_id: 92d2572732c947ffadc6be4d206f33ff
+utc_time_created: '2026-04-29 12:47:25.697755'

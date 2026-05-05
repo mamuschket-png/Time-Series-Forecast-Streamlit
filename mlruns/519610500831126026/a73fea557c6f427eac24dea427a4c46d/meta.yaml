@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/matthiasmuschket/PycharmProjects/260414_Time_Series_Masterschool/mlruns/519610500831126026/a73fea557c6f427eac24dea427a4c46d/artifacts
+end_time: 1777466797531
+entry_point_name: ''
+experiment_id: '519610500831126026'
+lifecycle_stage: active
+run_id: a73fea557c6f427eac24dea427a4c46d
+run_name: XGBoost
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777466793900
+status: 3
+tags: []
+user_id: matthiasmuschket

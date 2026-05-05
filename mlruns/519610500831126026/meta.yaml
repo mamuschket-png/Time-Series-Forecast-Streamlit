@@ -1,0 +1,8 @@
+artifact_location: file:///Users/matthiasmuschket/PycharmProjects/260414_Time_Series_Masterschool/mlruns/519610500831126026
+creation_time: 1777466793897
+experiment_id: '519610500831126026'
+last_update_time: 1777466793897
+lifecycle_stage: active
+name: sales_forecast
+trace_location: null
+workspace: default
