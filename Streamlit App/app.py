@@ -109,6 +109,8 @@ if page == "Home":
                 - Champion model was selected based on the lowest SMAPE (scale-independent, symmetric error metric robust against near-zero values)
                 - Due to the structural advantage of ML models (one-step vs. iterative), the comparison is limited
                 - A fair comparison would require consistent evaluation methodology across all models
+                - **Note:** The champion model was trained on 2013 data only (test set = Q1 2014). 
+                  In production, retraining on all available data would improve forecast quality.
                 """)
 
 
