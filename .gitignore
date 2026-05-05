@@ -1,1 +1,4 @@
-git rm -r --cached Scripts/Weitere Scripts von mir und Masterschool/
+git rm -r --cached Scripts/Weitere Scripts von mir und Masterschool/.DS_Store
+Scripts/mlflow.db
+Scripts/mlruns/
+.DS_Store
