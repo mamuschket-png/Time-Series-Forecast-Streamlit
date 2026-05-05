@@ -10,6 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import mlflow
 import mlflow.sklearn
+import os
 
 # ── KONFIGURATION ────────────────────────────────────────────────────
 st.set_page_config(
@@ -20,28 +21,22 @@ st.set_page_config(
 mlflow.set_tracking_uri("sqlite:////Users/matthiasmuschket/PycharmProjects/260414_Time_Series_Masterschool/mlflow.db")
 
 # ── DATEN LADEN ──────────────────────────────────────────────────────
-@st.cache_data
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 @st.cache_data
 def load_data():
-    base_path = "/Users/matthiasmuschket/PycharmProjects/260414_Time_Series_Masterschool/Data/"
-
     df = pd.read_csv(
-        base_path + "Processed/time_series_added_features.csv",
+        os.path.join(BASE_DIR, "Data", "Processed", "time_series_added_features.csv"),
         parse_dates=['date']
     )
-
     df_oil = pd.read_csv(
-        base_path + "Raw/oil.csv",
+        os.path.join(BASE_DIR, "Data", "Raw", "oil.csv"),
         parse_dates=['date']
     )
-
-    # Merge oil price
     df = pd.merge(df, df_oil, how='left', on='date')
-
     return df
 
 df = load_data()
-
 
 @st.cache_resource
 def load_model():
@@ -104,8 +99,8 @@ if page == "Home":
                 - Note: Lag and rolling features (see Feature Overview in Data Overview) are based on real observed values during one-step evaluation. In iterative forecasting, these are progressively replaced by predicted values with increasing uncertainty with each additional forecasting step.
               
                 **(2) Hyperparameter optimization**
-                - XGBoost: Hyperopt + Cross-Validation (TimeSeriesSplit) → no leakage
-                - RF & LR: Hyperopt without CV → mild data leakage
+                - XGBoost: Hyperopt + Cross-Validation (TimeSeriesSplit) → no data leakage from test set into training
+                - RF & LR: Hyperopt without CV → mild data leakage from test set into hyperparameter selection
                     - Hyperopt evaluates directly on the test set using **real (observed) lag features**
                       instead of predicted values → the model sees information unavailable in true forecasting
                     - Result: hyperparameters are implicitly tuned for one-step-ahead, not multi-step forecasting
