@@ -13,3 +13,4 @@ scipy==1.17.1
 pingouin==0.6.1
 holidays==0.95
 SQLAlchemy==2.0.49
+darts
