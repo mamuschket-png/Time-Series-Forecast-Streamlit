@@ -93,7 +93,7 @@ if page == "Home":
         st.markdown("""
                 ### Important Limitations
 
-                **(1) Selection of the best model**
+                **(1) Selection of the best model for forecasting sales units**
                 - Machine Learning (ML) models (XGBoost, Random Forest, Linear Regression) were evaluated using one-step-ahead forecasting
                 - Statistical models (ARIMA, SARIMA, Triple ES, Prophet) were evaluated using iterative forecasting (simulating multi-day prediction)
                 - => This gives ML models a structural advantage - direct metric comparison is therefore limited
@@ -129,7 +129,7 @@ if page == "Data Overview":
         st.pyplot(fig_ts)
 
         st.caption(
-          "Note: 2 missing days (2013-12-25 and 2014-01-01) were imputed using forward fill. Most forecasting models — both statistical and ML-based — cannot handle missing values in time series data.")
+          "Note: Two missing days (2013-12-25 and 2014-01-01) were imputed using forward fill. Most forecasting models — both statistical and ML-based — cannot handle missing values in time series data.")
 
     #st.write("")
     #st.write("")
