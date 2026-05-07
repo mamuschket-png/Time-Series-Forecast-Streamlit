@@ -88,23 +88,18 @@ various forecasting techniques including their individual limitations.
 No claim of production-ready performance is made.*
 
 **(1) Forecasting**
-- ML models (XGBoost, Random Forest, Linear Regression) were evaluated using **one-step-ahead forecasting**
-- Statistical models (ARIMA, SARIMA, Triple ES, Prophet) were evaluated using **iterative forecasting** (simulating multi-day prediction)
-- This gives ML models a structural advantage — direct metric comparison is therefore limited
-- Lag and rolling features are based on real observed values during one-step evaluation. In iterative forecasting, these are progressively replaced by predicted values — increasing uncertainty with each additional forecasting step.
+- Machine Learning (ML) models (XGBoost, Random Forest, Linear Regression) were evaluated using one-step-ahead forecasting
+- Statistical models (ARIMA, SARIMA, Triple ES, Prophet) were evaluated using iterative forecasting (simulating multi-day prediction)
+- => This gives ML models a structural advantage - direct metric comparison is therefore limited
+- Note: Lag and rolling features (see Feature Overview in Data Overview) are based on real observed values during one-step evaluation (teacher forcing). In iterative forecasting, these are progressively replaced by predicted values with increasing uncertainty with each additional forecasting step.
 
 **(2) Hyperparameter Optimization**
-- XGBoost: Hyperopt + Cross-Validation (TimeSeriesSplit) → no data leakage from test set into training
-- RF & LR: Hyperopt without CV → mild data leakage from test set into hyperparameter selection
-  - Hyperopt evaluates directly on the test set using real (observed) lag features instead of predicted values → the model sees information unavailable in true forecasting
-  - Result: hyperparameters are implicitly tuned for one-step-ahead, not multi-step forecasting
+- **XGBoost:** Hyperopt + TimeSeriesSplit CV → no test set leakage. For each candidate hyperparameter set, the model is trained and evaluated across all CV folds; the mean fold score (SMAPE across folds) is returned to Hyperopt. The test set is never touched during this process. Only after the best hyperparameter set is selected, a final evaluation on the test set is performed.
+- **RF & LR:** Hyperopt without CV → mild leakage. The score returned to Hyperopt is computed directly on the test set, meaning hyperparameter selection is implicitly guided by test set performance. The chosen hyperparameters are therefore optimized for this specific test set rather than generalizing from held-out validation folds.
 
-**(3) Selection of the Best Model**
-- Champion model was selected based on the lowest SMAPE (scale-independent, symmetric error metric robust against near-zero values)
-- Due to the structural advantage of ML models (one-step vs. iterative), the comparison is limited
-- A fair comparison would require consistent evaluation methodology across all models
-- **Note:** The champion model was trained on 2013 data only (test set = Q1 2014). 
-  In production, retraining on all available data would improve forecast quality.
+**(3) Forecasting**
+- The champion model was trained on 2013 data only (test set = Q1 2014). In production, retraining on all available data would improve forecast quality.
+
 ---
 
 ## Troubleshooting
