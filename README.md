@@ -99,7 +99,7 @@ No claim of production-ready performance is made.*
 
 **(3) Forecasting**
 - The champion model was trained on 2013 data only (test set = Q1 2014). In production, retraining on all available data would improve forecast quality.
-
+- Case-specific model optimization, tailored to the required forecast horizon, may further improve forecast quality.
 ---
 
 ## Troubleshooting

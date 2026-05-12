@@ -18,11 +18,10 @@ st.set_page_config(
     layout="wide"
 )
 
-mlflow.set_tracking_uri("sqlite:////Users/matthiasmuschket/PycharmProjects/260414_Time_Series_Masterschool/mlflow.db")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+mlflow.set_tracking_uri(f"sqlite:///{os.path.join(BASE_DIR, 'mlflow.db')}")
 
 # ── DATEN LADEN ──────────────────────────────────────────────────────
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 @st.cache_data
 def load_data():
     df = pd.read_csv(
@@ -105,6 +104,7 @@ if page == "Home":
 
                 **(3) Forecasting**
                 - The champion model was trained on 2013 data only (test set = Q1 2014). In production, retraining on all available data would improve forecast quality.
+                - Case-specific model optimization, tailored to the required forecast horizon, may further improve forecast quality.
                 """)
 
 
