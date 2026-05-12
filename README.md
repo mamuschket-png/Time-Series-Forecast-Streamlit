@@ -22,6 +22,15 @@ hyperparameter optimization, model evaluation and interactive deployment via Str
 
 ---
 
+## Live Demo
+
+An interactive version of this app is deployed on Streamlit Cloud and can be accessed here: 
+[Link](https://time-series-forecast-app-27ravvpbzczcaepwfie9qm.streamlit.app)
+
+No installation required — simply open the link and explore the app in your browser.
+
+---
+
 ## Project Structure
 ```
 ## Project Structure
