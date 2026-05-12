@@ -100,7 +100,7 @@ Simply clone the repository and run the app.
 
 ---
 
-## How to Start the App
+## How to Start the App Locally
 
 ```bash
 cd retail-sales-forecasting
