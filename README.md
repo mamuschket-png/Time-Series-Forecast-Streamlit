@@ -39,6 +39,29 @@ retail-sales-forecasting/
 
 ---
 
+## MLflow & Deployment Notes
+
+MLflow was used during model development for experiment tracking, hyperparameter 
+logging, and artifact storage. However, MLflow is not compatible with Streamlit Cloud 
+due to two fundamental issues:
+
+1. **Absolute artifact paths** — MLflow stores artifact paths as absolute local paths 
+   in the tracking database. These paths do not exist on Streamlit Cloud.
+2. **Protobuf incompatibility** — MLflow 3.x uses an outdated protobuf API that is 
+   incompatible with the protobuf versions installed on Streamlit Cloud (Python 3.14 
+   environment).
+
+### Workaround
+All MLflow artifacts were exported once locally using `Scripts/Export MLflow data.py`:
+- Champion model → `Streamlit App/exports/champion_model.pkl`
+- Model metrics → `Streamlit App/exports/metrics.csv`
+- Hyperparameters → `Streamlit App/exports/params.json`
+- Forecast & feature importance plots → `Streamlit App/exports/plots/`
+
+The Streamlit app loads these files directly, with no dependency on MLflow at runtime.
+
+---
+
 ## Requirements
 
 - Python 3.11
