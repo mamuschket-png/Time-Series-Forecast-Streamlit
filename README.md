@@ -24,17 +24,28 @@ hyperparameter optimization, model evaluation and interactive deployment via Str
 
 ## Project Structure
 ```
-retail-sales-forecasting/
-├── Data/
-│   ├── Processed/          # Cleaned and feature-engineered data
-│   └── Raw/                # Original data files
-├── Scripts/                # Jupyter Notebooks (EDA, modeling, MLflow)
-├── Streamlit App/
-│   └── app.py              # Main Streamlit application
-├── mlruns/                 # MLflow tracking artifacts
-├── mlflow.db               # MLflow backend store
-├── requirements.txt
-└── README.md
+## Project Structure
+
+  retail-sales-forecasting/
+    ├── Data/
+    │   ├── Processed/          # Cleaned and feature-engineered data
+    │   └── Raw/                # Original data files
+    ├── Scripts/                # Jupyter Notebooks (EDA, modeling, MLflow export)
+    │   ├── 0_Data_Preparation_and_EDA.ipynb        # EDA (Exploratory Data Analysis)
+    │   ├── 1_Statistical_models.ipynb              # ARIMA, SARIMA, Triple ES, Prophet
+    │   ├── 2_Feature_Engineering_Models.ipynb      # XGBoost, Random Forest, Linear Regression
+    │   └── Export MLflow data.py                   # One-time export script for Streamlit deployment
+    ├── Streamlit App/
+    │   ├── app.py              # Main Streamlit application
+    │   └── exports/            # Pre-exported model artifacts (no MLflow at runtime)
+    │       ├── champion_model.pkl
+    │       ├── metrics.csv
+    │       ├── params.json
+    │       └── plots/          # Forecast & feature importance plots
+    ├── mlruns/                 # MLflow tracking artifacts (local only)
+    ├── mlflow.db               # MLflow backend store (local only)
+    ├── requirements.txt
+    └── README.md
 ```
 
 ---
