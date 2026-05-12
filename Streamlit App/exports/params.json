@@ -1,0 +1,81 @@
+{
+  "Random_Forest": {
+    "n_estimators": "130",
+    "max_depth": "8",
+    "min_samples_split": "20",
+    "min_samples_leaf": "10",
+    "max_features": "None",
+    "max_samples": "0.5292957249750033",
+    "train_size": "336",
+    "test_size": "90",
+    "test_start": "2014-01-01",
+    "test_end": "2014-03-31",
+    "features": "['is_weekday', 'is_holiday', 'dayofweek', 'dayofmonth', 'dayofyear', 'weekofyear', 'month', 'quarter', 'is_weekend', 'lag_7', 'lag_14', 'lag_21', 'lag_28', 'rolling_mean_7', 'rolling_mean_14', 'rolling_mean_21', 'rolling_mean_28', 'rolling_std_7', 'rolling_std_14', 'rolling_std_21', 'rolling_std_28', 'rolling_max_7', 'rolling_max_14', 'rolling_max_21', 'rolling_max_28', 'rolling_min_7', 'rolling_min_14', 'rolling_min_21', 'rolling_min_28']"
+  },
+  "Prophet": {
+    "changepoint_prior_scale": "0.2857118918951094",
+    "seasonality_prior_scale": "8.504186297998663",
+    "seasonality_mode": "additive",
+    "holidays_prior_scale": "0.014640234441796055",
+    "train_size": "364",
+    "test_size": "90",
+    "test_start": "2014-01-01",
+    "test_end": "2014-03-31"
+  },
+  "Linear_Regression": {
+    "train_size": "336",
+    "test_size": "90",
+    "test_start": "2014-01-01",
+    "test_end": "2014-03-31",
+    "features": "['is_holiday', 'dayofweek', 'dayofmonth', 'month', 'is_weekend', 'lag_7', 'lag_14', 'lag_21', 'lag_28', 'rolling_mean_21', 'rolling_std_14', 'rolling_max_14', 'rolling_min_21']"
+  },
+  "Triple_ES": {
+    "trend": "add",
+    "seasonal": "add",
+    "seasonal_periods": "7",
+    "damped_trend": "True",
+    "use_boxcox": "True",
+    "train_size": "364",
+    "test_size": "90",
+    "test_start": "2014-01-01",
+    "test_end": "2014-03-31"
+  },
+  "SARIMA": {
+    "p": "1",
+    "q": "3",
+    "d": "0",
+    "P": "1",
+    "D": "1",
+    "Q": "1",
+    "s": "7",
+    "train_size": "364",
+    "test_size": "90",
+    "test_start": "2014-01-01",
+    "test_end": "2014-03-31"
+  },
+  "XGBoost": {
+    "n_estimators": "170",
+    "max_depth": "3",
+    "learning_rate": "0.013953292201506299",
+    "reg_alpha": "0.9051691206948077",
+    "reg_lambda": "0.9440140157131163",
+    "subsample": "0.5340136256394008",
+    "colsample_bytree": "0.730798325280967",
+    "min_child_weight": "8",
+    "gamma": "3.4914561007517886",
+    "train_size": "364",
+    "test_size": "90",
+    "test_start": "2014-01-01",
+    "test_end": "2014-03-31",
+    "features": "['is_weekday', 'is_holiday', 'dayofweek', 'dayofmonth', 'dayofyear', 'weekofyear', 'month', 'quarter', 'is_weekend', 'lag_7', 'lag_14', 'lag_21', 'lag_28', 'rolling_mean_7', 'rolling_mean_14', 'rolling_mean_21', 'rolling_mean_28', 'rolling_std_7', 'rolling_std_14', 'rolling_std_21', 'rolling_std_28', 'rolling_max_7', 'rolling_max_14', 'rolling_max_21', 'rolling_max_28', 'rolling_min_7', 'rolling_min_14', 'rolling_min_21', 'rolling_min_28']"
+  },
+  "ARIMA": {
+    "p": "21",
+    "q": "30",
+    "d": "0",
+    "train_size": "364",
+    "test_size": "90",
+    "test_start": "2014-01-01",
+    "test_end": "2014-03-31"
+  }
+}
