@@ -14,3 +14,4 @@ pingouin
 holidays
 SQLAlchemy
 darts
+opentelemetry-proto>=1.26.0
